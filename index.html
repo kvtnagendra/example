@@ -32,8 +32,7 @@
       text-align: left;
       font-size: 18px; /* Default font size */
       line-height: 1.6; /* Increase line height for better readability */
-      word-break: break-all; /* Prevent breaking words and wrap them to the next line */
-      overflow-wrap: break-word;
+      overflow-wrap: break-word; /* Ensure long words wrap and break */
     }
     .letter {
       display: inline-block;
@@ -92,17 +91,16 @@
 
     function animateLetters(message) {
       messageElement.innerHTML = "";
-      for (let i = 0; i < message.length; i++) {
-        const letterSpan = document.createElement("span");
-        if (message[i] === ' ') { // Check if character is a space
-          letterSpan.textContent = '\u00A0'; // Use non-breaking space
+      let words = message.split(" ");
+      let line = '';
+      for (let i = 0; i < words.length; i++) {
+        if ((i + 1) % 30 === 0) {
+          line += words[i] + "<br>";
         } else {
-          letterSpan.textContent = message[i];
+          line += words[i] + " ";
         }
-        letterSpan.className = "letter";
-        letterSpan.style.animationDelay = `${i * 0.05}s`;
-        messageElement.appendChild(letterSpan);
       }
+      messageElement.innerHTML = line.trim();
     }
 
     let currentIndex = 0;
@@ -119,3 +117,4 @@
   </script>
 </body>
 </html>
+``
