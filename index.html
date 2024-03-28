@@ -84,15 +84,20 @@
 
 
     function animateLetters(message) {
-      messageElement.innerHTML = "";
-      for (let i = 0; i < message.length; i++) {
-        const letterSpan = document.createElement("span");
-        letterSpan.textContent = message[i];
-        letterSpan.className = "letter";
-        letterSpan.style.animationDelay = `${i * 0.1}s`;
-        messageElement.appendChild(letterSpan);
-      }
+  messageElement.innerHTML = "";
+  for (let i = 0; i < message.length; i++) {
+    const letterSpan = document.createElement("span");
+    if (message[i] === ' ') { // Check if character is a space
+      letterSpan.textContent = '\u00A0'; // Use non-breaking space
+    } else {
+      letterSpan.textContent = message[i];
     }
+    letterSpan.className = "letter";
+    letterSpan.style.animationDelay = `${i * 0.1}s`;
+    messageElement.appendChild(letterSpan);
+  }
+}
+
 
     let currentIndex = 0;
 
