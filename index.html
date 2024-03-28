@@ -15,8 +15,8 @@
       padding: 0;
     }
     .container {
-      max-width: 40%;
-      margin: 200px auto;
+      max-width: 80%;
+      margin: 50px auto;
       position: relative; /* Adjusted position */
       overflow: hidden;
       background-color: orange;
@@ -25,12 +25,13 @@
       box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
     }
     .message-box {
-      padding: 10px 20px;
+      padding: 20px;
       background-color: #f9f9f9;
       border-radius: 5px;
       margin-bottom: 20px;
-      text-align: center;
-      font-size: 18px; /* Default font size */
+      text-align: left;
+      font-size: 16px; /* Default font size */
+      line-height: 1.6; /* Increase line height for better readability */
     }
     .letter {
       display: inline-block;
@@ -54,20 +55,20 @@
     /* Media queries for smaller devices */
     @media screen and (max-width: 768px) {
       .container {
-        max-width: 60%; /* Adjust container width for smaller devices */
-        margin: 100px auto;
+        max-width: 90%; /* Adjust container width for smaller devices */
+        margin: 30px auto;
       }
       .message-box {
-        font-size: 16px; /* Decrease font size for smaller devices */
+        font-size: 14px; /* Decrease font size for smaller devices */
       }
     }
     @media screen and (max-width: 480px) {
       .container {
-        max-width: 80%; /* Adjust container width for even smaller devices */
-        margin: 50px auto;
+        max-width: 100%; /* Adjust container width for even smaller devices */
+        margin: 20px auto;
       }
       .message-box {
-        font-size: 14px; /* Further decrease font size for even smaller devices */
+        font-size: 12px; /* Further decrease font size for even smaller devices */
       }
     }
   </style>
@@ -100,7 +101,7 @@
           letterSpan.textContent = message[i];
         }
         letterSpan.className = "letter";
-        letterSpan.style.animationDelay = `${i * 0.1}s`;
+        letterSpan.style.animationDelay = `${i * 0.05}s`;
         messageElement.appendChild(letterSpan);
       }
     }
