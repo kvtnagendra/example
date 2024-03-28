@@ -25,14 +25,18 @@
       box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
     }
   
-
 .message-box {
   padding: 10px 20px;
   background-color: #f9f9f9;
   border-radius: 5px;
   margin-bottom: 20px;
   text-align: center;
-  white-space: nowrap; /* Add this line */
+  white-space: nowrap;
+  overflow: auto; /* Add this line */
+}
+
+.container {
+  max-width: 80%; /* Adjust container width for smaller screens */
 }
 
     
