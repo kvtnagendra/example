@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stylish Letter-by-Letter Animation</title>
+  <title>Apology</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -77,7 +77,7 @@
   </style>
 </head>
 <body>
-  <h3>Kvt Nagendra</h3>
+  <h3>Heyyyyy Ariiii</h3>
   <div class="container">
     <div class="message-box" id="message"></div>
     <button id="nextButton">Next</button>
@@ -89,11 +89,14 @@
 
     // Define the messages
     const messages = [
-      "jgdysldfbkdsDsbbfkdsbfkukdsbsbkvvbdsdbvvk eueuhefhliusudbvkuesk esbegbjdjsdzsbfkikussb iususgisbdsiluglg isdsusbksbgebksdsdb ilu",
-      "Message 2: ",
-      "Message 3: ",
-      "Message 4: ",
-      "Message 5:."
+      "I hope this message finds you well, It has taken me a considerable amount of time and reflection to gather the courage to write to you. There's something important I've been wanting to convey, something that I've carried in my heart for too long.
+",
+      "Last summer, I came to realize that my actions may have hurt you, an understanding that has deeply affected me. I want to extend my sincerest apologies for any pain my actions may have caused you. It was never my intention to bring you anything but happiness, and I deeply regret if my actions fell short of that.",
+      "I deeply regret any pain I caused you. You did not deserve that, and I take full responsibility for my thoughtless behavior. I can only hope you can find it in your heart to forgive me. ",
+      "I know you have moved on and are now married, which I'm happy for you about. I no longer have any romantic feelings towards you.  ",
+      
+      "Also, been thinking about the old times, like our anime chats. Miss those! If you’re ever up for it, would totally love to hear what shows you’re into these days. No pressure, though. Just thought it’d be cool to share some of that fun stuff again.",
+      "Anyway, no hard feelings if you’d rather not chat. I just wanted to clear the air and wish you all the happiness you deserve.Take care and maybe catch up sometime!"
     ];
 
     // Function to generate a random color
@@ -113,7 +116,7 @@
         const letterSpan = document.createElement("span");
         letterSpan.textContent = message[i];
         letterSpan.className = "letter";
-        letterSpan.style.color = getRandomColor();
+       // letterSpan.style.color = getRandomColor();
         letterSpan.style.animationDelay = `${i * 0.1}s`; // Corrected syntax here
         messageElement.appendChild(letterSpan);
       }
