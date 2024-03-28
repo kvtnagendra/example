@@ -95,8 +95,8 @@
       let charCount = 0;
       for (let i = 0; i < message.length; i++) {
         if (charCount >= 30 && message[i] === ' ') {
-          line += ' ';
           line += `<span class="letter" style="animation-delay: ${i * 0.05}s;">${message[i]}</span>`;
+          line += ' ';
           charCount = 0;
         } else {
           line += `<span class="letter" style="animation-delay: ${i * 0.05}s;">${message[i]}</span>`;
