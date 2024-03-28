@@ -91,16 +91,16 @@
 
     function animateMessage(message) {
       messageElement.innerHTML = "";
+      let words = message.split(' ');
       let line = '';
       let charCount = 0;
-      for (let i = 0; i < message.length; i++) {
-        if (charCount >= 30 && message[i] === ' ') {
+      for (let i = 0; i < words.length; i++) {
+        if (charCount + words[i].length > 30) {
           line += '<br>';
           charCount = 0;
-        } else {
-          line += `<span class="letter" style="animation-delay: ${i * 0.05}s;">${message[i]}</span>`;
-          charCount++;
         }
+        line += `<span class="letter" style="animation-delay: ${(i * 0.05)}s;">${words[i]}</span> `;
+        charCount += words[i].length;
       }
       messageElement.innerHTML = line;
     }
