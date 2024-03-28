@@ -8,29 +8,28 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      /* background-color: #b3e0f2; */ /* Light blue background color */
-      background-image: url(image/d2.jpg);
+      background-image: url(image/d2.jpg); /* Check the path to your background image */
       background-repeat: repeat;
       background-size: auto;
-      margin: -100;
+      margin: 0;
       padding: 0;
     }
     .container {
       max-width: 40%;
       margin: 200px auto;
-      position: center;
+      position: relative; /* Adjusted position */
       overflow: hidden;
-      background-color: Orange; /* White background color for the container */
-      border-radius: 20px; /* Rounded corners */
-      padding: 30px; /* Add padding */
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+      background-color: orange;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
     }
     .message-box {
-      padding: 10px 20px; /* Add padding */
-      background-color: #f9f9f9; /* Light gray background color for the message box */
-      border-radius: 5px; /* Rounded corners */
-      margin-bottom: 20px; /* Add margin */
-      text-align: center; /* Align text to left */
+      padding: 10px 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-align: center;
     }
     .letter {
       display: inline-block;
@@ -51,28 +50,17 @@
       cursor: pointer;
       margin-top: 20px;
     }
-   @media screen and (max-width: 768px) {
-  .container {
-    max-width: 40%;
-    margin: 100px auto; /* Adjust margin for smaller screens */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .container {
-    max-width: 40%;
-    margin: 30px auto; /* Adjust margin for even smaller screens */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
+    @media screen and (max-width: 768px) {
+      .container {
+        max-width: 40%;
+        margin: 100px auto;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .container {
+        max-width: 40%;
+        margin: 30px auto;
+      }
     }
   </style>
 </head>
@@ -84,57 +72,36 @@
   </div>
 
   <script>
-    // Get the message element
     const messageElement = document.getElementById("message");
-
-    // Define the messages
     const messages = [
-      "I hope this message finds you well, It has taken me a considerable amount of time and reflection to gather the courage to write to you. There's something important I've been wanting to convey, something that I've carried in my heart for too long.
-",
+      "I hope this message finds you well. It has taken me a considerable amount of time and reflection to gather the courage to write to you. There's something important I've been wanting to convey, something that I've carried in my heart for too long.",
       "Last summer, I came to realize that my actions may have hurt you, an understanding that has deeply affected me. I want to extend my sincerest apologies for any pain my actions may have caused you. It was never my intention to bring you anything but happiness, and I deeply regret if my actions fell short of that.",
-      "I deeply regret any pain I caused you. You did not deserve that, and I take full responsibility for my thoughtless behavior. I can only hope you can find it in your heart to forgive me. ",
-      "I know you have moved on and are now married, which I'm happy for you about. I no longer have any romantic feelings towards you.  ",
-      
+      "I deeply regret any pain I caused you. You did not deserve that, and I take full responsibility for my thoughtless behavior. I can only hope you can find it in your heart to forgive me.",
+      "I know you have moved on and are now married, which I'm happy for you about. I no longer have any romantic feelings towards you.",
       "Also, been thinking about the old times, like our anime chats. Miss those! If you’re ever up for it, would totally love to hear what shows you’re into these days. No pressure, though. Just thought it’d be cool to share some of that fun stuff again.",
-      "Anyway, no hard feelings if you’d rather not chat. I just wanted to clear the air and wish you all the happiness you deserve.Take care and maybe catch up sometime!"
+      "Anyway, no hard feelings if you’d rather not chat. I just wanted to clear the air and wish you all the happiness you deserve. Take care and maybe catch up sometime!"
     ];
 
-    // Function to generate a random color
-    function getRandomColor() {
-      const letters = "0123456789ABCDEF";
-      let color = "#";
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-
-    // Function to create and animate letter spans for a message
     function animateLetters(message) {
-      messageElement.innerHTML = ""; // Clear previous message
+      messageElement.innerHTML = "";
       for (let i = 0; i < message.length; i++) {
         const letterSpan = document.createElement("span");
         letterSpan.textContent = message[i];
         letterSpan.className = "letter";
-       // letterSpan.style.color = getRandomColor();
-        letterSpan.style.animationDelay = `${i * 0.1}s`; // Corrected syntax here
+        letterSpan.style.animationDelay = `${i * 0.1}s`;
         messageElement.appendChild(letterSpan);
       }
     }
 
-    // Initialize message index
     let currentIndex = 0;
 
-    // Function to display next message
     function displayNextMessage() {
-      currentIndex = (currentIndex + 1) % messages.length; // Increment index and loop back if necessary
+      currentIndex = (currentIndex + 1) % messages.length;
       animateLetters(messages[currentIndex]);
     }
 
-    // Call the function to animate letters for the first message
     animateLetters(messages[currentIndex]);
 
-    // Add event listener to the Next button
     const nextButton = document.getElementById("nextButton");
     nextButton.addEventListener("click", displayNextMessage);
   </script>
