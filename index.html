@@ -36,8 +36,8 @@
     }
     .letter {
       display: inline-block;
-      animation: appear 0.5s forwards;
       opacity: 0;
+      animation: appear 0.5s forwards;
     }
     @keyframes appear {
       to {
@@ -89,40 +89,31 @@
       "Anyway, no hard feelings. I just wanted to clear the air and wish you all the happiness you deserve. Take care and maybe catch up sometime!"
     ];
 
-    function animateLetters(message) {
+    function animateMessage(message) {
       messageElement.innerHTML = "";
       let line = '';
       let charCount = 0;
       for (let i = 0; i < message.length; i++) {
         if (charCount >= 30 && message[i] === ' ') {
-          line += '<br>';
+          line += `<span class="letter" style="animation-delay: ${i * 0.05}s;">${message[i]}</span>`;
+          //line += '<br>';
           charCount = 0;
         } else {
-          line += message[i];
+          line += `<span class="letter" style="animation-delay: ${i * 0.05}s;">${message[i]}</span>`;
           charCount++;
         }
       }
-      messageElement.innerHTML = line.trim();
-      animateLettersByCharacter();
-    }
-
-    function animateLettersByCharacter() {
-      const letterSpans = messageElement.querySelectorAll('.letter');
-      letterSpans.forEach((letter, index) => {
-        setTimeout(() => {
-          letter.style.opacity = '1';
-        }, index * 50); // Adjust the delay as needed
-      });
+      messageElement.innerHTML = line;
     }
 
     let currentIndex = 0;
 
     function displayNextMessage() {
       currentIndex = (currentIndex + 1) % messages.length;
-      animateLetters(messages[currentIndex]);
+      animateMessage(messages[currentIndex]);
     }
 
-    animateLetters(messages[currentIndex]);
+    animateMessage(messages[currentIndex]);
 
     const nextButton = document.getElementById("nextButton");
     nextButton.addEventListener("click", displayNextMessage);
