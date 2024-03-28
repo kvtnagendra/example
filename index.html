@@ -15,7 +15,7 @@
       padding: 0;
     }
     .container {
-      max-width: 80%;
+      max-width: 90%;
       margin: 50px auto;
       position: relative; /* Adjusted position */
       overflow: hidden;
@@ -32,8 +32,7 @@
       text-align: left;
       font-size: 18px; /* Default font size */
       line-height: 1.6; /* Increase line height for better readability */
-      word-wrap: break-word; /* Ensure long words wrap and break */
-      overflow-wrap: break-word; /* For browsers that don't support word-wrap */
+      overflow-wrap: break-word; /* Ensure long words wrap and break */
     }
     .letter {
       display: inline-block;
@@ -57,21 +56,17 @@
     /* Media queries for smaller devices */
     @media screen and (max-width: 768px) {
       .container {
-        max-width: 90%; /* Adjust container width for smaller devices */
+        max-width: 95%; /* Adjust container width for smaller devices */
         margin: 30px auto;
       }
       .message-box {
-        font-size: 16px; /* Decrease font size for smaller devices */
+        font-size: 18px; /* Keep the same font size for smaller devices */
       }
     }
     @media screen and (max-width: 480px) {
       .container {
-        max-width: 95%; /* Adjust container width for even smaller devices */
+        max-width: 100%; /* Adjust container width for even smaller devices */
         margin: 20px auto;
-      }
-      .message-box {
-        font-size: 18px; /* Further decrease font size for even smaller devices */
-        padding: 10px; /* Adjust padding for smaller devices */
       }
     }
   </style>
