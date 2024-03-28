@@ -8,14 +8,14 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-image: url(d2.jpg); /* Check the path to your background image */
+      background-image: url(image/d2.jpg); /* Check the path to your background image */
       background-repeat: repeat;
       background-size: auto;
       margin: 0;
       padding: 0;
     }
     .container {
-      max-width: 40%;
+      max-width: 80%; /* Adjusted max-width for smaller screens */
       margin: 200px auto;
       position: relative; /* Adjusted position */
       overflow: hidden;
@@ -30,6 +30,7 @@
       border-radius: 5px;
       margin-bottom: 20px;
       text-align: center;
+      font-size: 16px; /* Increased font size for better readability */
     }
     .letter {
       display: inline-block;
@@ -52,13 +53,13 @@
     }
     @media screen and (max-width: 768px) {
       .container {
-        max-width: 40%;
+        max-width: 80%; /* Adjusted max-width for smaller screens */
         margin: 100px auto;
       }
     }
     @media screen and (max-width: 480px) {
       .container {
-        max-width: 40%;
+        max-width: 80%; /* Adjusted max-width for smaller screens */
         margin: 30px auto;
       }
     }
@@ -74,30 +75,28 @@
   <script>
     const messageElement = document.getElementById("message");
     const messages = [
-  "I hope this message finds you well. It has taken me a considerable amount of time and reflection to gather the courage to write to you. There's something important I've been wanting to convey, something that I've carried in my heart for too long.",
-  "Last summer, I came to realize that my actions may have hurt you, an understanding that has deeply affected me. I want to extend my sincerest apologies for any pain my actions may have caused you. It was never my intention to bring you anything but happiness, and I deeply regret if my actions fell short of that.",
-  "I deeply regret any pain I caused you. You did not deserve that, and I take full responsibility for my thoughtless behavior. I can only hope you can find it in your heart to forgive me.",
-  "I know you have moved on and are now married, which I'm happy for you about. I no longer have any romantic feelings towards you.",
-  "Also, been thinking about the old times, like our anime chats. Miss those! If you’re ever up for it, would totally love to hear what shows you’re into these days. No pressure, though. Just thought it’d be cool to share some of that fun stuff again.",
-  "Anyway, no hard feelings if you’d rather not chat. I just wanted to clear the air and wish you all the happiness you deserve. Take care and maybe catch up sometime!"
-];
-
+      "I hope this message finds you well. It has taken me a considerable amount of time and reflection to gather the courage to write to you. There's something important I've been wanting to convey, something that I've carried in my heart for too long.",
+      "Last summer, I came to realize that my actions may have hurt you, an understanding that has deeply affected me. I want to extend my sincerest apologies for any pain my actions may have caused you. It was never my intention to bring you anything but happiness, and I deeply regret if my actions fell short of that.",
+      "I deeply regret any pain I caused you. You did not deserve that, and I take full responsibility for my thoughtless behavior. I can only hope you can find it in your heart to forgive me.",
+      "I know you have moved on and are now married, which I'm happy for you about. I no longer have any romantic feelings towards you.",
+      "Also, been thinking about the old times, like our anime chats. Miss those! If you’re ever up for it, would totally love to hear what shows you’re into these days. No pressure, though. Just thought it’d be cool to share some of that fun stuff again.",
+      "Anyway, no hard feelings if you’d rather not chat. I just wanted to clear the air and wish you all the happiness you deserve. Take care and maybe catch up sometime!"
+    ];
 
     function animateLetters(message) {
-  messageElement.innerHTML = "";
-  for (let i = 0; i < message.length; i++) {
-    const letterSpan = document.createElement("span");
-    if (message[i] === ' ') { // Check if character is a space
-      letterSpan.textContent = '\u00A0'; // Use non-breaking space
-    } else {
-      letterSpan.textContent = message[i];
+      messageElement.innerHTML = "";
+      for (let i = 0; i < message.length; i++) {
+        const letterSpan = document.createElement("span");
+        if (message[i] === ' ') { // Check if character is a space
+          letterSpan.textContent = '\u00A0'; // Use non-breaking space
+        } else {
+          letterSpan.textContent = message[i];
+        }
+        letterSpan.className = "letter";
+        letterSpan.style.animationDelay = `${i * 0.1}s`;
+        messageElement.appendChild(letterSpan);
+      }
     }
-    letterSpan.className = "letter";
-    letterSpan.style.animationDelay = `${i * 0.1}s`;
-    messageElement.appendChild(letterSpan);
-  }
-}
-
 
     let currentIndex = 0;
 
