@@ -51,17 +51,28 @@
       cursor: pointer;
       margin-top: 20px;
     }
-    @media screen and (max-width: 768px) {
-      .container {
-        max-width: 40%; /* Adjust max-width for smaller screens */
-        margin: 100px auto; /* Adjust margin for smaller screens */
-      }
-    }
-    @media screen and (max-width: 480px) {
-      .container {
-        max-width: 40%; /* Adjust max-width for even smaller screens */
-        margin: 30px auto; /* Adjust margin for even smaller screens */
-      }
+   @media screen and (max-width: 768px) {
+  .container {
+    max-width: 40%;
+    margin: 100px auto; /* Adjust margin for smaller screens */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 40%;
+    margin: 30px auto; /* Adjust margin for even smaller screens */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
     }
   </style>
 </head>
