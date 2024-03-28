@@ -91,16 +91,28 @@
 
     function animateLetters(message) {
       messageElement.innerHTML = "";
-      let words = message.split(" ");
       let line = '';
-      for (let i = 0; i < words.length; i++) {
-        if ((i + 1) % 30 === 0) {
-          line += words[i] + "<br>";
+      let charCount = 0;
+      for (let i = 0; i < message.length; i++) {
+        if (charCount >= 30 && message[i] === ' ') {
+          line += '<br>';
+          charCount = 0;
         } else {
-          line += words[i] + " ";
+          line += message[i];
+          charCount++;
         }
       }
       messageElement.innerHTML = line.trim();
+      animateLettersByCharacter();
+    }
+
+    function animateLettersByCharacter() {
+      const letterSpans = messageElement.querySelectorAll('.letter');
+      letterSpans.forEach((letter, index) => {
+        setTimeout(() => {
+          letter.style.opacity = '1';
+        }, index * 50); // Adjust the delay as needed
+      });
     }
 
     let currentIndex = 0;
@@ -117,4 +129,3 @@
   </script>
 </body>
 </html>
-``
