@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish Letter-by-Letter Animation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      /* background-color: #b3e0f2; */ /* Light blue background color */
+      background-image: url(d2.jpg);
+      background-repeat: repeat;
+      background-size: auto;
+      margin: -100;
+      padding: 0;
+    }
+    .container {
+      max-width: 40%;
+      margin: 200px auto;
+      position: relative;
+      overflow: hidden;
+      background-color: Orange; /* White background color for the container */
+      border-radius: 20px; /* Rounded corners */
+      padding: 30px; /* Add padding */
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+    .message-box {
+      padding: 10px 20px; /* Add padding */
+      background-color: #f9f9f9; /* Light gray background color for the message box */
+      border-radius: 5px; /* Rounded corners */
+      margin-bottom: 20px; /* Add margin */
+      text-align: center; /* Align text to left */
+    }
+    .letter {
+      display: inline-block;
+      animation: appear 0.5s forwards;
+      opacity: 0;
+    }
+    @keyframes appear {
+      to {
+        opacity: 1;
+      }
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    @media screen and (max-width: 768px) {
+      .container {
+        max-width: 40%; /* Adjust max-width for smaller screens */
+        margin: 100px auto; /* Adjust margin for smaller screens */
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .container {
+        max-width: 40%; /* Adjust max-width for even smaller screens */
+        margin: 30px auto; /* Adjust margin for even smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message-box" id="message"></div>
+    <button id="nextButton">Next</button>
+  </div>
+
+  <script>
+    // Get the message element
+    const messageElement = document.getElementById("message");
+
+    // Define the messages
+    const messages = [
+      "Message 1:",
+      "Message 2: ",
+      "Message 3: ",
+      "Message 4: ",
+      "Message 5:."
+    ];
+
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Function to create and animate letter spans for a message
+    function animateLetters(message) {
+      messageElement.innerHTML = ""; // Clear previous message
+      for (let i = 0; i < message.length; i++) {
+        const letterSpan = document.createElement("span");
+        letterSpan.textContent = message[i];
+        letterSpan.className = "letter";
+        letterSpan.style.color = getRandomColor();
+        letterSpan.style.animationDelay = `${i * 0.1}s`; // Corrected syntax here
+        messageElement.appendChild(letterSpan);
+      }
+    }
+
+    // Initialize message index
+    let currentIndex = 0;
+
+    // Function to display next message
+    function displayNextMessage() {
+      currentIndex = (currentIndex + 1) % messages.length; // Increment index and loop back if necessary
+      animateLetters(messages[currentIndex]);
+    }
+
+    // Call the function to animate letters for the first message
+    animateLetters(messages[currentIndex]);
+
+    // Add event listener to the Next button
+    const nextButton = document.getElementById("nextButton");
+    nextButton.addEventListener("click", displayNextMessage);
+  </script>
+</body>
+</html>
